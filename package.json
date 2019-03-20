@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-ejs": "^3.1.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.0",
+    "natives": "^1.1.6",
+    "run-sequence": "^2.2.1",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.17.1",
+    "webpack-stream": "^5.1.1"
+  },
+  "scripts": {
+    "start": "./start.sh",
+    "clean": "gulp clean",
+    "build": "NODE_ENV=production gulp build"
+  },
+  "dependencies": {
+    "pixi-tween": "github:themoonrat/pixi-tween",
+    "pixi.js": "^4.7.0",
+    "underscore": "^1.8.3",
+    "victor": "^1.1.0"
+  }
+}

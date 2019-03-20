@@ -1,0 +1,175 @@
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+body {
+
+	width: 100vw;
+	height: 100vh;
+
+	overflow: hidden;
+
+	// background-color: black;
+	background-image: url(/images/wall04-768x576.jpg);
+	background-size: 50%;
+}
+
+.bg {
+	@include absolute-fit;
+
+	background-color: black;
+
+	transition: opacity 1s;
+	opacity: 0;
+	body.black & {
+		opacity: 1;
+	}
+}
+
+.picture_wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 80vw;
+	height: 80vh;
+}
+
+.picture {
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	// transition: all 1s;
+	transition-property: width, height;
+	transition-duration: 1s;
+	// transition-delay: 0s;
+	// opacity: 0;
+
+	.frame {
+		@include absolute-fit;
+
+		border-style: solid;
+		border-width: 0;
+		border-image: url('/images/acf38b93a00a4e87dc58280087c9263f--gold-picture-frames-vintage-picture-frames.png') 180 repeat;
+
+		transition-property: border-width, margin, opacity;
+		transition-duration: 1s;
+
+		body.black & {
+			opacity: 0.5;
+		}
+	}
+
+	&.first,
+	&.first .frame {
+		transition-duration: 0s;
+	}
+
+	.images {
+		transition: opacity 1s;
+		body.black & {
+			opacity: 0;
+		}
+	}
+
+	img {
+		@include absolute-fit;
+		transition: opacity 1s;
+
+		&.dotified {
+			opacity: 0;
+		}
+
+		&.dotified.visible {
+			opacity: 1;
+		}
+	}
+}
+
+.text_wrapper {
+	position: absolute;
+	left: 50%;
+	bottom: 2%;
+	transform: translate(-50%, 0);
+	width: 96%;
+
+	z-index: 10;
+}
+
+.text {
+	display: inline-block;
+
+	// position: relative;
+	overflow: hidden;
+
+	font-family: 'KoburinaGoStd-W6';
+	line-height: 1.5;
+	vertical-align: bottom;
+
+	&.text-name {
+		font-size: 42px;
+	}
+
+	&.text-data {
+		font-size: 21px;
+	}
+
+	transform: translate(-100%, 0);
+	.text_wrapper.visible & {
+		transform: none;
+	}
+	.text_wrapper.visible.hidden & {
+		transform: translate(100%, 0);
+	}
+
+}
+
+.text-inner {
+
+	display: inline-block;
+
+	padding: 0 0.25em;
+
+	background-color: #333;
+	color: white;
+
+	transform: translate(100%, 0);
+	.text_wrapper.visible & {
+		transform: none;
+	}
+	.text_wrapper.visible.hidden & {
+		transform: translate(-100%, 0);
+	}
+}
+
+.text,
+.text-inner {
+	transition-property: transform;
+	transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+
+	.text_wrapper.visible & {
+		transition-duration: 0.8s;
+	}
+	.text_wrapper.visible.hidden & {
+		transition-duration: 0.4s;
+	}
+}
+
+.text.text-data,
+.text.text-data .text-inner {
+	transition-delay: 0.2s;
+}
+
+.canvas {
+	display: block;
+	position: absolute;
+
+	transition: opacity .5s;
+	opacity: 0;
+	&.visible {
+		opacity: 1;
+	}
+}

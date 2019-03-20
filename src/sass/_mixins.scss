@@ -1,0 +1,28 @@
+@mixin absolute-fit {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin absolute-center {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+@mixin image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+
+	background-repeat: no-repeat;
+}
+
+@mixin border-box {
+	box-sizing: border-box;
+}
